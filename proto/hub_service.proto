@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "hub-service/grpc;";
+
+service HubService {
+  rpc CreateMatchRoom (CreateMatchRoomRequest) returns (CreateMatchRoomResponse);
+  rpc GetMatchRooms (GetMatchRoomsRequest) returns (GetMatchRoomsResponse);
+}
+
+message CreateMatchRoomRequest {
+  string roomName = 1;
+  int32 maxPlayers = 2;
+}
+
+message CreateMatchRoomResponse {
+  int32 roomId = 1;
+}
+
+message GetMatchRoomsRequest {}
+
+message GetMatchRoomsResponse {
+  repeated MatchRoomInfo rooms = 1;
+}
+
+message MatchRoomInfo {
+  int32 roomId = 1;
+  string roomName = 2;
+  int32 maxPlayers = 3;
+  int32 currentPlayers = 4;
+}
