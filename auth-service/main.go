@@ -1,8 +1,8 @@
 package main
 
 import (
-	authRPC "JINs-software/MOW_SYSTEMS/auth-service/grpc"
 	"JINs-software/MOW_SYSTEMS/auth-service/services"
+	authRPC "JINs-software/MOW_SYSTEMS/proto"
 	"net"
 
 	"google.golang.org/grpc"
